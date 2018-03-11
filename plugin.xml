@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    xmlns:rim="http://www.blackberry.com/ns/widgets"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="cordova-plugin-math"
+    version="0.0.1">
+    <name>Math</name>
+    <description>Simple Math operation plugin</description>
+
+    <!-- android -->
+    <!-- plugin module definition -->
+    <js-module src="www/MATH.js" name="MATH">
+        <clobbers target="MATH" />
+    </js-module>
+
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="MATH" >
+                <param name="android-package" value="com.gc.math.PluginMATH"/>
+            </feature>
+        </config-file>
+
+        <!-- files will be copied to the generated android project -->
+
+        <framework src="libs/build-extras.gradle" custom="true" type="gradleReference" />
+
+        <resource-file src="libs/math.aar" target="libs/math.aar" />
+
+        <source-file src="src/com/gc/math/PluginMATH.java" target-dir="src/com/gc/math" />
+
+    </platform>
+
+</plugin>
